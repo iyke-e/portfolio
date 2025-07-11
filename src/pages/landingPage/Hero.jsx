@@ -21,9 +21,8 @@ const Hero = () => {
                     </h1>
                     <p>Frontend Developer</p>
 
-                    <a href="/resume" target="_blank">
-                        <Button buttonName={"View Resume"} />
-
+                    <a href="/Egwim_Ikechukwu_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                        <Button buttonName="View Resume" />
                     </a>
 
                 </div>

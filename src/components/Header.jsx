@@ -82,8 +82,8 @@ const Header = () => {
 
 
                     <li onClick={closeMenu}>
-                        <a href="/resume" target="_blank" rel="noopener noreferrer">
-                            <Button buttonName={"Resume"} />
+                        <a href="/Egwim_Ikechukwu_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                            <Button buttonName="View Resume" />
                         </a>
 
                     </li>
