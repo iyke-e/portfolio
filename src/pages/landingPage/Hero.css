@@ -1,0 +1,229 @@
+.hero {
+  height: calc(100dvh - 4.5rem);
+  position: relative;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  min-height: 20rem;
+  @media (min-width: 800px) {
+    height: calc(100dvh - 7.75rem);
+    max-height: initial;
+  }
+
+  @media (orientation: portrait) {
+    max-height: 45rem;
+  }
+}
+
+.hero-content-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero-animation-container {
+  --translate: 11rem;
+  --animation-time: 60s;
+  --center-image: 8rem;
+  --outer-box: 5rem;
+  --outer-box-img: 2rem;
+
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 50vh;
+  display: grid;
+  place-content: center;
+  position: relative;
+
+  @media (max-width: 600px) {
+    z-index: -999999;
+    opacity: 0.1;
+  }
+
+  @media (max-width: 1000px) {
+    --translate: 9rem;
+    --center-image: 7rem;
+    --outer-box: 4rem;
+    --outer-box-img: 1.6rem;
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    --translate: 6rem;
+    --center-image: 4.5rem;
+    --outer-box: 2.5rem;
+    --outer-box-img: 1.2rem;
+  }
+
+  & > img {
+    width: var(--center-image);
+    aspect-ratio: 1;
+    border-radius: 20%;
+    border: 4px solid var(--white);
+  }
+
+  & ul {
+    @media (prefers-reduced-motion) {
+      animation-play-state: paused;
+
+      & li {
+        animation-play-state: paused !important;
+      }
+    }
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    animation: spin var(--animation-time) linear infinite;
+    cursor: pointer;
+
+    &:hover,
+    &:hover li {
+      animation-play-state: paused;
+    }
+    & li {
+      position: inherit;
+      display: grid;
+      place-content: center;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      width: var(--outer-box);
+      aspect-ratio: 1;
+      border-radius: 20px;
+      border: 2px solid var(--white);
+      animation: maintain-position var(--animation-time) linear infinite;
+
+      &:hover {
+        border: transparent;
+        &::before {
+          opacity: 100%;
+        }
+      }
+
+      &::before {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(244, 148, 52, 0.8);
+        position: absolute;
+        border-radius: 15px;
+        display: grid;
+        place-content: center;
+        color: var(--white);
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+      }
+
+      & img {
+        height: var(--outer-box-img);
+      }
+
+      &:nth-last-of-type(1) {
+        --deg: -0deg;
+        rotate: 0deg;
+
+        &::before {
+          content: "Vue Js";
+        }
+      }
+      &:nth-last-of-type(2) {
+        --deg: -45deg;
+        rotate: 45deg;
+        &::before {
+          content: "Figma";
+        }
+      }
+      &:nth-last-of-type(3) {
+        --deg: -90deg;
+        rotate: 90deg;
+        &::before {
+          content: "SASS";
+        }
+      }
+      &:nth-last-of-type(4) {
+        --deg: -135deg;
+        rotate: 135deg;
+        &::before {
+          content: "Tailwind";
+        }
+      }
+      &:nth-last-of-type(5) {
+        --deg: -180deg;
+        rotate: 180deg;
+        &::before {
+          content: "React";
+        }
+      }
+      &:nth-last-of-type(6) {
+        --deg: -225deg;
+        rotate: 225deg;
+        &::before {
+          content: "JS";
+        }
+      }
+      &:nth-last-of-type(7) {
+        --deg: -270deg;
+        rotate: 270deg;
+        &::before {
+          content: "CSS";
+        }
+      }
+      &:nth-last-of-type(8) {
+        --deg: -315deg;
+        rotate: 315deg;
+        &::before {
+          content: "HTML";
+        }
+      }
+    }
+  }
+}
+
+.hero-text {
+  width: 100%;
+
+  & p {
+    margin-block: 0.5rem;
+    color: var(--orange);
+    font-size: 1.125rem;
+  }
+
+  & button {
+    margin-block-start: 4rem;
+  }
+
+  @media (min-width: 800px) {
+    & p {
+      font-size: 1.5rem;
+    }
+
+    & button {
+      margin-block-start: 3rem;
+    }
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    & p {
+      font-size: 1rem;
+    }
+
+    & button {
+      margin-block-start: 1rem;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    rotate: 1turn;
+  }
+}
+
+@keyframes maintain-position {
+  from {
+    transform: translate(var(--translate)) rotate(var(--deg));
+  }
+  to {
+    transform: translate(var(--translate)) rotate(calc(-1turn + var(--deg)));
+  }
+}

@@ -1,0 +1,88 @@
+.about,
+.project {
+  background-color: var(--cardBg);
+  border-radius: 1rem;
+  padding-inline: 1rem;
+  position: relative;
+
+  & p {
+    font-size: 0.875rem;
+    line-height: 200%;
+  }
+
+  @media (min-width: 800px) and (orientation: landscape) {
+    margin-block-start: 5rem;
+  }
+
+  @media (min-width: 700px) {
+    padding-inline: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    padding-inline: 2.5rem;
+  }
+}
+
+.about-txt {
+  background-color: var(--darkCardBg);
+  padding: 1rem 0.75rem;
+  border-radius: 10px 10px 0 0;
+  @media (min-width: 700px) {
+    padding: 2rem;
+    text-align: justify;
+  }
+}
+
+.tech-stack {
+  margin-block-start: 3rem;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
+
+.tech-stack-header {
+  display: flex;
+  gap: 0.5rem;
+  width: fit-content;
+  align-items: center;
+  background-color: var(--mini-card-bg);
+  border-radius: 10px;
+  padding: 0.625rem 1rem;
+  & svg {
+    height: 1.75rem;
+  }
+}
+
+.the-stacks {
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
+  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+
+  & > ul {
+    @media (prefers-reduced-motion) {
+      flex-wrap: wrap;
+      animation: none;
+      width: 100%;
+      justify-content: center;
+      & li[aria-hidden] {
+        display: none;
+      }
+    }
+
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    gap: 1rem;
+    animation: slide 90s linear infinite;
+    @media (max-width: 600px) {
+      gap: 0.5rem;
+    }
+  }
+}
+
+@keyframes slide {
+  to {
+    translate: calc(-50% - 0.5rem);
+  }
+}

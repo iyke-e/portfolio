@@ -1,0 +1,50 @@
+footer {
+  background-color: #1a1d1f;
+  color: var(--white);
+  padding-block: 2rem;
+
+  & ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    & li {
+      cursor: pointer;
+      & a {
+        transition: 0.2s ease-in-out;
+        &:hover,
+        &.active {
+          color: var(--orange);
+        }
+      }
+    }
+  }
+
+  & small {
+    display: inline-block;
+    text-align: center;
+    font-size: 0.75rem;
+    width: 100%;
+    & span {
+      color: var(--orange);
+    }
+  }
+}
+
+.nav-items {
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+}
+.social-icons {
+  margin-block: 2rem;
+
+  & a {
+    & svg path {
+      transition: 0.25s ease-in-out;
+    }
+    &:hover {
+      & svg path {
+        fill: var(--orange);
+      }
+    }
+  }
+}
