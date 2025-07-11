@@ -1,4 +1,4 @@
-import pdf from "./Egwim_Ikechukwu_Resume.pdf"
+import pdf from "/Egwim_Ikechukwu_Resume.pdf"
 import "./resume.css"
 const resume = () => {
     return (

@@ -37,7 +37,7 @@
 
   @media (max-width: 600px) {
     z-index: -999999;
-    opacity: 0.1;
+    opacity: 0.2;
   }
 
   @media (max-width: 1000px) {
@@ -62,13 +62,13 @@
   }
 
   & ul {
-    @media (prefers-reduced-motion) {
+    /* @media (prefers-reduced-motion) {
       animation-play-state: paused;
 
       & li {
         animation-play-state: paused !important;
       }
-    }
+    } */
 
     position: absolute;
     top: 50%;

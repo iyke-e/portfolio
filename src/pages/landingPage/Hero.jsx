@@ -20,8 +20,9 @@ const Hero = () => {
                         Egwim <br /> Ikechukwu
                     </h1>
                     <p>Frontend Developer</p>
-                    <a href="#project">
-                        <Button buttonName={"View Project"} />
+
+                    <a href="/resume" target="_blank">
+                        <Button buttonName={"View Resume"} />
 
                     </a>
 
